@@ -1,0 +1,2 @@
+# TomDemoSpringByXml
+實作一個spring4的範例專案，並使用XML的註解方式
