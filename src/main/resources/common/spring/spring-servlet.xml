@@ -9,19 +9,9 @@
 
 	<context:component-scan base-package="com.tomDemoSpringXml" />
 	
- 	<bean name="/mainController" class="com.tomDemoSpringXml.controller.MainController">
-		<property name="mainServicebyName" ref="mainServicebyName"/>
-	</bean>
-	<bean id="mainServicebyName" class="com.tomDemoSpringXml.service.impl.MainServicebyNameImpl">
-	</bean>
+	
     
-    <bean class = "org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-	<bean name = "/home" class = "com.tomDemoSpringXml.controller.MainController" /> 
-	<bean name = "/add" class = "com.tomDemoSpringXml.controller.MainController" /> 
-    
-    
-    <bean
-        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
             <value>/WEB-INF/views/</value>
         </property>

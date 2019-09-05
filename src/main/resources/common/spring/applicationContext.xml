@@ -4,7 +4,32 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	<!--
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="caseSensitive" value="true" />
+	</bean>
+    -->
+    
+    <!-- 進行url映射的對應 -->
+    <bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+       <property name="mappings">
+        <props>
+           <prop key="/mainController/*">mainController</prop>
+        </props>
+     </property>
+    </bean>
+
+    <bean name="mainController" class="com.tomDemoSpringXml.controller.MainController">
+    	<property name="mainServicebyName" ref="mainServicebyName"/>
+    	<!--<property name="mainServicebyType" ref="mainServicebyType"/>
+     	<property name="methodNameResolver" ref="springMethodNameResolver">-->
+   	</bean>
 	
-	
+    <bean id="mainServicebyName" class="com.tomDemoSpringXml.service.impl.MainServicebyNameImpl" autowire="byName">
+	</bean>
+	<!--
+	<bean id="mainServicebyType" class="com.tomDemoSpringXml.service.impl.MainServicebyTypeImpl" autowire="byType">
+	</bean>
+	-->
 
 </beans>
