@@ -19,17 +19,28 @@
      </property>
     </bean>
 
-    <bean name="mainController" class="com.tomDemoSpringXml.controller.MainController">
+
+	<!-- controller -->  
+    <bean name="mainController" class="com.tomDemoSpringXml.controller.MainController" autowire="byType">
     	<property name="mainServicebyName" ref="mainServicebyName"/>
-    	<!--<property name="mainServicebyType" ref="mainServicebyType"/>
-     	<property name="methodNameResolver" ref="springMethodNameResolver">-->
+    	<property name="mainServicebyType" ref="mainServicebyType"/>
    	</bean>
+
 	
+	
+	<!--內部bean的注入都使用byName-->
     <bean id="mainServicebyName" class="com.tomDemoSpringXml.service.impl.MainServicebyNameImpl" autowire="byName">
+		<property name="serviceExampleA" ref="serviceExampleA"/>
+    	<property name="serviceExampleB" ref="serviceExampleB"/>
 	</bean>
-	<!--
+	
+	<!--內部bean的注入都使用byType-->  
 	<bean id="mainServicebyType" class="com.tomDemoSpringXml.service.impl.MainServicebyTypeImpl" autowire="byType">
 	</bean>
-	-->
-
+	
+	<bean id="serviceExampleA" class="com.tomDemoSpringXml.service.impl.ServiceExampleAImpl">
+	</bean>
+	<bean id="serviceExampleB" class="com.tomDemoSpringXml.service.impl.ServiceExampleBImpl">
+	</bean>
+	
 </beans>
